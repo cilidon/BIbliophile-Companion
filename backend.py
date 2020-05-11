@@ -18,7 +18,7 @@ print(pageObject.extractText())
 pdfFileObject.close()
 '''
 
-pdffileobj=open('synopsis.pdf','rb')
+pdffileobj=open('docs/sm.pdf','rb')
 pdfreader=PyPDF2.PdfFileReader(pdffileobj)
 x=pdfreader.numPages
 pageobj=pdfreader.getPage(x-1)

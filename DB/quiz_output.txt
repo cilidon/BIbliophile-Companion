@@ -1,0 +1,55 @@
+[
+    {
+        "answer": "output",
+        "question": "The __________ is said to be a preprocessed form of the input data, which is often used by some subsequent programs like compilers.",
+        "similar_words": [
+            "book",
+            "book",
+            "by-product",
+            "deliverable",
+            "end product",
+            "inspiration",
+            "job",
+            "magazine"
+        ],
+        "title": "Preprocessor",
+        "url": "https://en.wikipedia.org/wiki/Preprocessor"
+    },
+    {
+        "answer": "amount",
+        "question": "The __________ and kind of processing done depends on the nature of the preprocessor; some preprocessors are only capable of performing relatively simple textual substitutions and macro expansions, while others have the power of full-fledged programming languages.",
+        "similar_words": [
+            "accounts receivable",
+            "capital",
+            "capital",
+            "credit",
+            "crown jewel",
+            "deep pocket",
+            "equity",
+            "funds"
+        ],
+        "title": "Preprocessor",
+        "url": "https://en.wikipedia.org/wiki/Preprocessor"
+    },
+    {
+        "answer": "common example",
+        "question": "A __________ __________ from computer programming is the processing performed on source code before the next step of compilation.",
+        "similar_words": [],
+        "title": "Preprocessor",
+        "url": "https://en.wikipedia.org/wiki/Preprocessor"
+    },
+    {
+        "answer": "computer languages",
+        "question": "In some __________ __________ (e.g., C and PL/I) there is a phase of translation known as preprocessing.",
+        "similar_words": [],
+        "title": "Preprocessor",
+        "url": "https://en.wikipedia.org/wiki/Preprocessor"
+    },
+    {
+        "answer": "macro processing",
+        "question": "It can also include __________ __________, file inclusion and language extensions.",
+        "similar_words": [],
+        "title": "Preprocessor",
+        "url": "https://en.wikipedia.org/wiki/Preprocessor"
+    }
+]

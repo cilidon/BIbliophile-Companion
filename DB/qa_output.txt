@@ -1,0 +1,91 @@
+Q-01: What 07 [ It ] – 5m ) q ) what is in Compilers ? what is the need of Optimization ? Explain types of Code Optimization techniques?
+Q-02: What 07 [ It ] – 5m ) q ) what is Code Optimization in Compilers ? what is of Optimization ? Explain types of Code Optimization techniques?
+Q-03: What 07 [ It ] – 5m ) q ) what is in Compilers ? what is the need of Optimization ? Explain types of Code Optimization techniques?
+Q-04: What 07 [ It ] – 5m ) q ) what is Code Optimization in Compilers ? what is of Optimization ? Explain types of Code Optimization techniques?
+Q-05: What if it c N less memory space?
+Q-06: Who consumes less processing time and/or less memory space?
+Q-07: Who must not affect the meaning of the code?
+Q-08: Who can be divided into two broad categories : 1?
+Q-09: Who can be exploited to generate optimized code?
+Q-10: Who performing machine dependent optimization?
+Q-11: Who are : 1?
+Q-12: Who are faster?
+Q-13: What instructions using using must be replaced by instructions using registers as operands?
+Q-14: Who using memory-resident operands must be replaced by instructions using registers as operands?
+Q-15: Who must be replaced by instructions using registers as operands?
+Q-16: Who using registers as operands?
+Q-17: Who can be used to optimize the code?
+Q-18: What could parallelism be used?
+Q-19: Who could be used you?
+Q-20: What instructions addressing addressing could be clubbed together for faster operation?
+Q-21: Who addressing different functional units could be clubbed together for faster operation?
+Q-22: Who could be clubbed together for faster operation?
+Q-23: Who must be avoided as it only wastes time and resources?
+Q-24: Who only wastes time and resources?
+Q-25: Who down 2 ……… down2 : ……… b?
+Q-26: Who must be removed as it ’ s unnecessary?
+Q-27: Who ’ s unnecessary?
+Q-28: Who requires pushing current execution state onto stack and popping it back when procedure returns ( you?
+Q-29: What can you replace with a jump to address of the procedure?
+Q-30: Who can replace the call with a jump to address of the procedure?
+Q-31: What this saves and resources required for house-keeping operations?
+Q-32: Who saves the time and resources required for house-keeping operations?
+Q-33: Who required for house-keeping operations?
+Q-34: What Function preserving Preserving?
+Q-35: Who preserving transformations 2?
+Q-36: Who is called a common sub-expression?
+Q-37: What can this common sub-expression be computed once and its value can be used in all remaining occurrences?
+Q-38: Who can be computed once and its value can be used in all remaining occurrences?
+Q-39: Who can be used in all remaining occurrences?
+Q-40: Who remaining occurrences?
+Q-41: What can it be evaluated at compile- time itself ; it reduces execution time of the program?
+Q-42: Who can be evaluated at compile- time itself ; it reduces execution time of the program?
+Q-43: Who reduces execution time of the program?
+Q-44: What can you eliminate that use variables ( stored in main memory ) with the ones using temporary variables ( stored in Cpu registers )?
+Q-45: What can you eliminate assignment operations that u N ( stored in main memory ) with the ones using temporary variables ( stored in Cpu registers )?
+Q-46: Who can eliminate assignment operations that use variables ( stored in main memory ) with the ones using temporary variables ( stored in Cpu registers )?
+Q-47: Who using temporary variables ( stored in Cpu registers )?
+Q-48: Who here is that read/write operations on registers are much faster and cheaper than load/store operations on memory?
+Q-49: Who are much faster and cheaper than load/store operations on memory?
+Q-50: What are dead code means computations performed even if they are of no use ; so it must be removed?
+Q-51: Who are performed even if they are of no use ; so it must be removed?
+Q-52: Who are of no use ; so it must be removed?
+Q-53: Who must be removed?
+Q-54: Who can be made to run effectively?
+Q-55: What the repeating expression repeating outside of the loop?
+Q-56: Who repeating of t D outside of the loop?
+Q-57: What gets it computed only once and not many times over ( you?
+Q-58: Who gets computed only once and not many times over ( you?
+Q-59: Who gets reduced )?
+Q-60: Who here …… 2?
+Q-61: What Strength Reduction – Operations requiring requiring can be replaced with the ones that require less Cpu cycles?
+Q-62: Who requiring more cpu cycles can be replaced with the ones that require less Cpu cycles?
+Q-63: Who can be replaced with the ones that require less Cpu cycles?
+Q-64: What is Multiplication by n than adding the number n times?
+Q-65: Who is a costlier operation than adding the number n times?
+Q-66: Who adding the number n times?
+Q-67: What can multiplication by n be replaced by n-times addition?
+Q-68: Who can be replaced by n-times addition?
+Q-69: Who is called an Induction Variable?
+Q-70: Who can be eliminated?
+Q-71: How much 3 C Chapter Chapter Summary  a piece of code is said to be optimized if it consumes less processing time and/or less memory space?
+Q-72: How much 3 3 C C C Chapter Summary  a piece of code is said to be optimized if it consumes less processing time and/or less memory space?
+Q-73: What Code optimization must only attempt to improve for efficiency ; it must not affect meaning of the program?
+Q-74: Who must only attempt to improve the program structure for efficiency ; it must not affect meaning of the program?
+Q-75: Who must not affect meaning of the program?
+Q-76: Who can be exploited to generate efficient code?
+Q-77: What Function preserving preserving arithmetic expressions?
+Q-78: Who preserving Transformations – Optimize arithmetic expressions?
+Q-79: What N sub types : 1?
+Q-80: Who preserving types : : four sub types : 1?
+Q-81: How much N sub types : 1?
+Q-82: What Common Sub-expression Elimination – Evaluate commonly occurring only once?
+Q-83: Who commonly occurring sub expressions only once?
+Q-84: What have  Loop Optimizations following sub types : 1?
+Q-85: Who have following three sub types : 1?
+Q-86: How much have  Loop Optimizations following sub types : 1?
+Q-87: Whom m m N N N and place it outside the loop?
+Q-88: Who requiring more cpu cycles with the one requiring less Cpu cycles 3?
+Q-89: Who requiring more Cpu cycles 3?
+Q-90: How much expected Viva Questions Q?
+Q-91: Who q?
