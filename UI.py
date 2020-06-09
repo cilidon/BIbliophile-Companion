@@ -7,10 +7,15 @@ from functools import partial
 from tkinter import messagebox
 import qa_main
 import topic_find
-#import wikitrivia.scripts.wikitrivia
 import summ
 import json
 import random
+import nltk
+from fuzzywuzzy import process
+from nltk.corpus import stopwords 
+from nltk.tokenize import sent_tokenize, word_tokenize
+from pptx import Presentation
+import os, glob
 
 #variables
 file_clicked=False
@@ -118,14 +123,59 @@ def read_file(fname):
     lbl9.insert('1.0',material)
 
 def addqa():
-    q=qasea.get()
-    lbl9.insert(END,"\n"+q)
+    
+    
+    x=qasea.get()
+    print(x)
     qasea.delete(0,END)
+    #import numpy
+    stop_words = set(stopwords.words('english')) 
+    h=0
+    #index=-1
+    #mindex=0
+    match="Sorry i dont understand your question"
+    w="0"
+    s="Compiler is as software which converts a program written in high level language to low level language.Compiler converts the program into machine level language. There is another compiler known as Cross-Compiler. Cross-Compiler runs on one machine but generates machine or assembly code for another machine. There are six phases in a compiler, they are Lexical Analysis, Syntax Analysis, Semantic Analysis, Intermediate Code Generation, Code Optimization, Code Generation. Phases of Compilation are divided into two groups, Front-end and Back-end. Front-end consists of Lexical Analysis, Syntax Analysis, Semantic Analysis and Intermediate Code Generation. Back-end consists of Code Optimization, Code Generation and Assembly phase. These phases ensure that the speed of execution is faster in the compiler."
+    st=sent_tokenize(s)
+    #q=input("Enter your question: ")
+    q=x
+    stf=""
+    l=0
+    for ans in st:
+        i = nltk.word_tokenize(ans)
+        #si= [x for x in i if not x in stop_words]
+        t = nltk.pos_tag(i) 
+        #ne= nltk.ne_chunk(t) 
+        for gram in t:
+            if gram[1]=="NNP":
+                w=gram[0]
+                stf+=" "+w
+            elif gram[1]==".":
+                stf+=gram[0]
+            elif gram[1]=="PRP" and w!="0":
+                stf+=" "+w
+            else:
+                if l==0:
+                    stf+=gram[0]
+                else:
+                    stf+=" "+gram[0]
+                l=1
+    stf=sent_tokenize(stf)
+    Ratios = process.extract(q,st)
+    print(Ratios)
+    for w in Ratios:
+        #index=index+1
+        if w[1] >=h and w[1]>30:
+            h=w[1]
+            match = w[0]
+            #mindex=index
+    #print(match)
+    lbl9.insert(END,"\n"+match)
 
 def questionanswer(event):
     qa_main.inputTextPath=gradient.filename
-    os.system("python qa_main.py")
-    file_read("DB/qa_output.txt")
+    #os.system("python qa_main.py")
+    #file_read("DB/qa_output.txt")
     f3.grid()
     global f3there
     f3there=0
@@ -136,9 +186,11 @@ def questionanswer(event):
 
 
 def incrementi_and_much_more(g):
+
   print("here")
   with open('DB/quiz_output.txt') as f:
         data = json.load(f)
+        
   if(data[g]['similar_words']):
       print(user_answer)
   else:
@@ -172,11 +224,34 @@ def show_result(g):
 
     tk.messagebox.showinfo(title="result", message="you scored"+str(score)+"/"+str(ran))
 
-def selected():
+def selected1():
+    #r1.select()
+    #r1.configure(fg="white",selectcolor="white")
     x = radiovar.get()
     print(x)
     user_answer.append(x)
-    radiovar.set("")
+    
+
+def selected2():
+    #r2.configure(selectcolor="yellow")
+    x = radiovar.get()
+    print(x)
+    user_answer.append(x)
+    
+
+def selected3():
+    #r3.select()
+    x = radiovar.get()
+    print(x)
+    user_answer.append(x)
+    
+
+def selected4():
+    #r4.select()
+    x = radiovar.get()
+    print(x)
+    user_answer.append(x)
+    
 
 def generate_quiz(g):
     global quizgenerated
@@ -204,51 +279,51 @@ def generate_quiz(g):
         if(data[g]['similar_words']):
             for j in range(1,2):
                 #print(data[i]['similar_words'][j])
-                #rannn=random.randrange(1,5)
+                rannn=random.randrange(1,5)
                 global radiovar
     
-                radiovar.set("")
-                rannn=1 
+                radiovar.set("1")
+                
                 #print(ran)
                 if(rannn==1):
                     #print(data[i]['similar_words'][j])
                     r1.pack()
                     r1.configure(text=data[g]['answer'],value=data[g]['answer'])
                     r2.pack()
-                    r2.configure(text=data[g]['similar_words'][j],value=data[g]['similar_words'][j])
+                    r2.configure(text=data[g]['similar_words'][0],value=data[g]['similar_words'][0])
                     r3.pack()
-                    r3.configure(text=data[g]['similar_words'][j],value=data[g]['similar_words'][j])
+                    r3.configure(text=data[g]['similar_words'][1],value=data[g]['similar_words'][1])
                     r4.pack()
-                    r4.configure(text=data[g]['similar_words'][j],value=data[g]['similar_words'][j])
+                    r4.configure(text=data[g]['similar_words'][2],value=data[g]['similar_words'][2])
 
                 elif(rannn==2):
                     #print(data[i]['similar_words'][j])
                     r1.pack()
-                    r1.configure(text=data[g]['similar_words'][j],value=data[g]['similar_words'][j])
+                    r1.configure(text=data[g]['similar_words'][0],value=data[g]['similar_words'][0])
                     r2.pack()
                     r2.configure(text=data[g]['answer'],value=data[g]['answer'])
                     r3.pack()
-                    r3.configure(text=data[g]['similar_words'][j],value=data[g]['similar_words'][j])
+                    r3.configure(text=data[g]['similar_words'][1],value=data[g]['similar_words'][1])
                     r4.pack()
-                    r4.configure(text=data[g]['similar_words'][j],value=data[g]['similar_words'][j])
+                    r4.configure(text=data[g]['similar_words'][2],value=data[g]['similar_words'][2])
                 elif(rannn==3):
                     # print(data[i]['similar_words'][j])
                     r1.pack()
-                    r1.configure(text=data[g]['similar_words'][j],value=data[g]['similar_words'][j])
+                    r1.configure(text=data[g]['similar_words'][0],value=data[g]['similar_words'][0])
                     r2.pack()
-                    r3.configure(text=data[g]['similar_words'][j],value=data[g]['similar_words'][j])
+                    r3.configure(text=data[g]['similar_words'][1],value=data[g]['similar_words'][1])
                     r3.pack()
                     r3.configure(text=data[g]['answer'],value=data[g]['answer'])
                     r4.pack()
-                    r4.configure(text=data[g]['similar_words'][j],value=data[g]['similar_words'][j])
+                    r4.configure(text=data[g]['similar_words'][2],value=data[g]['similar_words'][2])
                 else:
                     #print(data[i]['similar_words'][j])
                     r1.pack()
-                    r1.configure(text=data[g]['similar_words'][j],value=data[g]['similar_words'][j])
+                    r1.configure(text=data[g]['similar_words'][0],value=data[g]['similar_words'][0])
                     r2.pack()
-                    r2.configure(text=data[g]['similar_words'][j],value=data[g]['similar_words'][j])
+                    r2.configure(text=data[g]['similar_words'][1],value=data[g]['similar_words'][1])
                     r3.pack()
-                    r3.configure(text=data[g]['similar_words'][j],value=data[g]['similar_words'][j])
+                    r3.configure(text=data[g]['similar_words'][2],value=data[g]['similar_words'][2])
                     r4.pack()
                     r4.configure(text=data[g]['answer'],value=data[g]['answer'])
         else:
@@ -288,15 +363,43 @@ def quiz(event):
     generate_quiz(0)
 
 def summm(event):
+    '''
     summ.filen=gradient.filename
     os.system("python summ.py")
     file_read("DB/summ_output.txt")
+    '''
     if(f3there==0):
         f3.grid_remove()
     if(quizgenerated==True):
         quizbut.grid_remove()
         quizlbl.grid_remove()
-        quizradio.grid_remove()    
+        quizradio.grid_remove() 
+
+
+
+    prs = Presentation()
+
+    def slide(number=0):
+        title_slide_layout = prs.slide_layouts[number]
+        slide = prs.slides.add_slide(title_slide_layout)
+        title = slide.shapes.title
+        subtitle = slide.placeholders[1]
+        title.text = file.readline()
+        file.readline()
+        subtitle.text = file.readline()
+        file.readline() 
+
+
+    file_chosen = "DB/hehe.txt"
+    with open(file_chosen, 'r', encoding="utf-8") as file:
+        file_lenght = len(file.readlines())
+        file.seek(0)
+        slide(0)
+        for i in range(int(file_lenght / 4)):
+            slide(1)
+    file_to_save = file_chosen[:-4] + ".pptx"
+    prs.save("hehe.pptx")
+    os.startfile("hehe.pptx")   
 
 def color_config(widget, color, event):
     widget.configure(foreground=color)
@@ -434,11 +537,12 @@ lbl9.grid_propagate(False)
 quizlbl=LabelFrame(lbl9,bg="black",fg="gray",height=100,width=950,font="times 24 bold",bd=0)
 qq=Label(quizlbl,text="",bg="black",fg="gray",wraplength=600,font="times 12 bold")
 quizradio=LabelFrame(lbl9,bg="black",fg="gray",height=300,width=950,font="times 24 bold",bd=0)
-radiovar=StringVar()
-r1=Radiobutton(quizradio,text="",bg="black",fg="gray",pady=10,justify=LEFT,variable = radiovar,activebackground="black",activeforeground="white",command = lambda :selected())
-r2=Radiobutton(quizradio,text="",bg="black",fg="gray",pady=10,justify=LEFT,variable = radiovar,activebackground="black",activeforeground="white",command = lambda :selected())
-r3=Radiobutton(quizradio,text="",bg="black",fg="gray",pady=10,justify=LEFT,variable = radiovar,activebackground="black",activeforeground="white",command = lambda :selected())
-r4=Radiobutton(quizradio,text="",bg="black",fg="gray",pady=10,justify=LEFT,variable = radiovar,activebackground="black",activeforeground="white",command = lambda :selected())
+radiovar=StringVar(value="1")
+#r1=Radiobutton(quizradio,text="12",variable = radiovar,value=1,bg="black",fg="white",selectcolor="black",activebackground="black",activeforeground="white",command = lambda :selected1())
+r1=Radiobutton(quizradio,text="",bg="black",fg="white",pady=10,justify=LEFT,value=1,variable = radiovar,activebackground="black",activeforeground="white",command = lambda :selected1(),selectcolor="black")
+r2=Radiobutton(quizradio,text="",bg="black",fg="white",pady=10,justify=LEFT,value=2,variable = radiovar,activebackground="black",activeforeground="white",command = lambda :selected2(),selectcolor="black")
+r3=Radiobutton(quizradio,text="",bg="black",fg="white",pady=10,justify=LEFT,value=3,variable = radiovar,activebackground="black",activeforeground="white",command = lambda :selected3(),selectcolor="black")
+r4=Radiobutton(quizradio,text="",bg="black",fg="white",pady=10,justify=LEFT,value=4,variable = radiovar,activebackground="black",activeforeground="white",command = lambda :selected4(),selectcolor="black")
 quizbut=LabelFrame(lbl9,bg="black",fg="gray",height=100,width=950,font="times 24 bold",bd=0)
 Grid.rowconfigure(lbl9, 0, weight=1)
 Grid.rowconfigure(lbl9, 1, weight=3)

@@ -1,0 +1,11 @@
+COMPILER
+
+Compiler is as software which converts a program written in high level language to low level language.
+
+FRONT-END
+
+Front-end consists of Lexical Analysis, Syntax Analysis, Semantic Analysis and Intermediate Code Generation. Back-end consists of Code Optimization, Code Generation and Assembly phase
+
+Back-END
+
+Back-end consists of Code Optimization, Code Generation and Assembly phase

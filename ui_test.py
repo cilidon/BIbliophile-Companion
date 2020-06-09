@@ -84,5 +84,22 @@ Grid.columnconfigure(gradient, 0, weight=1)
 lbl9.grid(column=0,row=0)
 #lbl9.pack(padx=10,pady=10)
 
+radiovar=StringVar(value="1")
+
+r1=Radiobutton(lbl9,text="12",variable = radiovar,value=1,bg="black",fg="white",selectcolor="black",activebackground="black",activeforeground="white")
+r2=Radiobutton(lbl9,text="23",variable = radiovar,value=2,bg="black",fg="white",selectcolor="black",activebackground="black",activeforeground="white")
+r3=Radiobutton(lbl9,text="34",variable = radiovar,value=3,bg="black",fg="white",selectcolor="black",activebackground="black",activeforeground="white")
+r4=Radiobutton(lbl9,text="45",variable = radiovar,value=4,bg="black",fg="white",selectcolor="black",activebackground="black",activeforeground="white")
+r1.configure(text="amount")
+r1.pack()
+r2.pack()
+r3.pack()
+r4.pack()
 root.configure(menu=w)
 root.mainloop()
+
+'''
+    q=qasea.get()
+    lbl9.insert(END,"\n"+q)
+    qasea.delete(0,END)
+'''
