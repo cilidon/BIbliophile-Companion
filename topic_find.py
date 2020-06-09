@@ -4,7 +4,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
 #opens the file. the with statement here will automatically close it afterwards.
-filen="C:/Users/manda/Desktop/newpuretxt.txt"
+filen="C:/Users/manda/Desktop/texts/newpuretxt.txt"
 with open(filen) as input_file:
     #build a counter from each word in the file
     count = Counter(word for line in input_file

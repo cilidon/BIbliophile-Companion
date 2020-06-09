@@ -3,7 +3,7 @@ from nltk.cluster.util import cosine_distance
 import numpy as np
 import networkx as nx
  
-filen="C:/Users/manda/Desktop/newpuretxt.txt"
+filen="C:/Users/manda/Desktop/texts/newpuretxt.txt"
 
 def read_article(file_name):
     file = open(file_name, "r",encoding="utf8")

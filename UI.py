@@ -91,7 +91,7 @@ def worked(event):
 def work(event):
 
     print("it worked")
-    gradient.filename=filedialog.askopenfilename(initialdir="C:/Users/manda/Desktop",title="select file",filetypes=(("txt","*.txt"),("pdf","*.pdf"),("document","*.doc")))
+    gradient.filename=filedialog.askopenfilename(initialdir="C:/Users/manda/Desktop/texts",title="select file",filetypes=(("txt","*.txt"),("pdf","*.pdf"),("document","*.doc")))
     if(gradient.filename):
         try:
             file_read(gradient.filename)
@@ -445,7 +445,7 @@ f4.grid(column=1,row=0,sticky='N'+'S'+'W'+'E')
 f2.grid(column=2,row=0,sticky='N'+'S'+'W'+'E')
 f4.grid_remove()
 
-gradient=LabelFrame(f2,height=500,width=950,bg="gray")
+gradient=LabelFrame(f2,height=500,width=950,bg="black")
 f3=LabelFrame(f2,text="",height=100,width=950,bg="#2b2b2b",fg="white",bd=0,labelanchor="n")
 Grid.rowconfigure(f2, 0, weight=1)
 Grid.rowconfigure(f2, 1, weight=0)
@@ -457,7 +457,7 @@ gradient.grid_propagate(False)
 
 qasea=Entry(f3)
 qaseabut=Button(f3,text="search",command=lambda :addqa())
-Grid.rowconfigure(f3, 0, weight=4)
+Grid.rowconfigure(f3, 0, weight=3)
 Grid.rowconfigure(f3, 1, weight=1)
 Grid.columnconfigure(f3, 0, weight=1)
 qasea.grid(row=0,column=0,sticky='w'+'e')
@@ -527,10 +527,10 @@ lbl8.bind("<Button-1>",work)
 
 
 #f2
-lbl9=Text(gradient,bg="black",fg="gray",height=500,width=950,font="times 24 bold",spacing1=1,wrap=WORD,bd=2)
+lbl9=Text(gradient,bg="black",fg="gray",height=500,width=950,font="times 24 bold",spacing1=1,wrap=WORD,bd=0)
 Grid.rowconfigure(gradient, 0, weight=1)
 Grid.columnconfigure(gradient, 0, weight=1)
-lbl9.grid(column=0,row=0,sticky='N'+'S'+'W'+'E')
+lbl9.grid(column=0,row=0,sticky='N'+'S'+'W'+'E',padx=5,pady=5)
 lbl9.grid_propagate(False)
 
 #quizlbl
