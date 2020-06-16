@@ -11,7 +11,7 @@ def main():
     #readFile = open(inputTextPath, 'r+', encoding="utf8", errors = 'ignore')
 
     inputText = readFile.read()
-    #inputText = '''I am Dipta. I love codding. I build my carrier with this.'''
+
 
     questionList = aqg.aqgParse(inputText)
     aqg.display(questionList)

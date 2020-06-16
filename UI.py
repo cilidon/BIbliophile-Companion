@@ -37,9 +37,9 @@ global f3there
 f3there=1
 global quizgenerated
 quizgenerated=False
+
+
 #functions
-
-
 
 def searchslide(event):
     global search_clicked
@@ -127,6 +127,7 @@ def addqa():
     
     x=qasea.get()
     print(x)
+    lbl9.insert(END,"\n Q. "+x)
     qasea.delete(0,END)
     #import numpy
     stop_words = set(stopwords.words('english')) 
@@ -135,7 +136,10 @@ def addqa():
     #mindex=0
     match="Sorry i dont understand your question"
     w="0"
-    s="Compiler is as software which converts a program written in high level language to low level language.Compiler converts the program into machine level language. There is another compiler known as Cross-Compiler. Cross-Compiler runs on one machine but generates machine or assembly code for another machine. There are six phases in a compiler, they are Lexical Analysis, Syntax Analysis, Semantic Analysis, Intermediate Code Generation, Code Optimization, Code Generation. Phases of Compilation are divided into two groups, Front-end and Back-end. Front-end consists of Lexical Analysis, Syntax Analysis, Semantic Analysis and Intermediate Code Generation. Back-end consists of Code Optimization, Code Generation and Assembly phase. These phases ensure that the speed of execution is faster in the compiler."
+    txt = open(book1_add)
+    material=txt.read()
+    s=material
+    #s="Compiler is as software which converts a program written in high level language to low level language.Compiler converts the program into machine level language. There is another compiler known as Cross-Compiler. Cross-Compiler runs on one machine but generates machine or assembly code for another machine. There are six phases in a compiler, they are Lexical Analysis, Syntax Analysis, Semantic Analysis, Intermediate Code Generation, Code Optimization, Code Generation. Phases of Compilation are divided into two groups, Front-end and Back-end. Front-end consists of Lexical Analysis, Syntax Analysis, Semantic Analysis and Intermediate Code Generation. Back-end consists of Code Optimization, Code Generation and Assembly phase. These phases ensure that the speed of execution is faster in the compiler."
     st=sent_tokenize(s)
     #q=input("Enter your question: ")
     q=x
@@ -170,12 +174,13 @@ def addqa():
             match = w[0]
             #mindex=index
     #print(match)
-    lbl9.insert(END,"\n"+match)
+    lbl9.insert(END,"\n Ans. "+match)
+    lbl9.see(END)
 
 def questionanswer(event):
     qa_main.inputTextPath=gradient.filename
-    #os.system("python qa_main.py")
-    #file_read("DB/qa_output.txt")
+    os.system("python qa_main.py")
+    file_read("DB/qa_output.txt")
     f3.grid()
     global f3there
     f3there=0
@@ -363,10 +368,12 @@ def quiz(event):
     generate_quiz(0)
 
 def summm(event):
-    '''
+    
     summ.filen=gradient.filename
     os.system("python summ.py")
     file_read("DB/summ_output.txt")
+    
+    #this part generates a ppt but is not comlpete
     '''
     if(f3there==0):
         f3.grid_remove()
@@ -400,6 +407,7 @@ def summm(event):
     file_to_save = file_chosen[:-4] + ".pptx"
     prs.save("hehe.pptx")
     os.startfile("hehe.pptx")   
+    '''
 
 def color_config(widget, color, event):
     widget.configure(foreground=color)
@@ -511,10 +519,6 @@ lbl11.bind("<Leave>", partial(imgcolor_config, lbl11, search_gray))
 lbl11.grid(row=1,padx=10,pady=20)
 lbl11.bind("<Button-1>",searchslide)
 
-#fillers
-#Label(f1,bg="#181818",height=10).grid(row=5)
-
-
 
 addbut_white=ImageTk.PhotoImage(Image.open("icons/addbut_white.png").resize((50,50)))
 addbut_gray=ImageTk.PhotoImage(Image.open("icons/addbut_gray.png").resize((50,50)))
@@ -574,13 +578,6 @@ lbl4.bind("<Enter>", partial(color_config, lbl4, "#ffffff"))
 lbl4.bind("<Leave>", partial(color_config, lbl4, "gray"))
 lbl4.grid(row=3)
 lbl4.bind("<Button-1>",worked)
-
-#adjustment
-"""Frame1.rowconfigure(0,weight=1)
-Frame1.columnconfigure(0,weight=1)
-root.rowconfigure(0,weight=1)
-root.columnconfigure(0,weight=1)
-"""
 
 root.configure(menu=w)
 root.mainloop()
