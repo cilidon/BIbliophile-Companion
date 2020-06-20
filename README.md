@@ -10,4 +10,4 @@ Requirement.txt
 IMPORTANT!!
 change the addresses for file reading from UI.py , summ.py , main_qa.py..
 
-start UI.py
+start with UI.py
